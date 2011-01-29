@@ -46,7 +46,7 @@
 			<% if current_user %>
 			<% if post.comments.count > 0 %>
 			<span class="comments"><%= post.comments.count %></span>
-			<span class="latest"><%= post.comments.all.last.created_at.strftime("%b %d %Y") %></span>
+			<span class="latest"><%= post.comments.order("created_at ASC").last.created_at.strftime("%b %d %Y") %></span>
 			<% end %>
 			<% end %>
 		</li>

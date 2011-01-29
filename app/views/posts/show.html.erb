@@ -96,7 +96,7 @@
 		<h2 class="comment_count"><%= pluralize(@post.comments.count, "comment") %> so far</h2>
 		
 		<div id="comments" class="comments">
-			<% for comment in @post.comments.all %> 
+			<% for comment in @post.comments.order("created_at ASC") %> 
 			<%= render :partial => comment, :locals => { :post => @post } %> 
 			<% end %>
 		</div><!--comments-->

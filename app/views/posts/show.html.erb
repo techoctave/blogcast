@@ -120,22 +120,22 @@
 				<% if current_user %>
 					<%= f.text_field :name, :value => current_user.initials, :size => "40" %> 
 				<% else %>
-					<%= f.text_field :name, :value => "Name", :size => "40" %> 
+					<%= f.text_field :name, :placeholder => "Name", :size => "40" %> 
 				<% end %>
 				</div>
 				
 				<div class="form-field">
-					<%= f.text_field :email, :value => "Email", :size => "40" %> 
+					<%= f.text_field :email, :placeholder => "Email", :size => "40" %> 
 				</div>
 
 				<div class="form-field">
-					<%= f.text_field :website, :value => "Website", :size => "40" %> 
+					<%= f.text_field :website, :placeholder => "Website", :size => "40" %> 
 				</div>	
 			</fieldset>
 			
 			<fieldset>
 				<div class="form-field">
-					<%= f.text_area :content, :cols => "55", :rows => "6", :value => "Remember, your comment represents you. Let's add value. Some XHTML is welcomed (strong em blockquote code)." %>
+					<%= f.text_area :content, :cols => "55", :rows => "6", :placeholder => "Remember, your comment represents you. Let's add value. Some XHTML is welcomed (strong em blockquote code)." %>
 				</div>
 			</fieldset>
 			

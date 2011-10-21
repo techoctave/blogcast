@@ -43,6 +43,14 @@ table {
 	border-spacing: 0;
 }
 
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
 /*-----------------------------------------------------------
 		TYPOGRAPHY - GLOBAL
 -----------------------------------------------------------*/
@@ -51,6 +59,7 @@ body {
 	margin: 0;
 	background-color: #FFF;
 	color: #666;
+	/*font: normal 0.9em/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
@@ -123,7 +132,7 @@ body {
 .sidebar {
 	float: right;
 	width: 270px;
-	margin: 12px 0 0 0;
+	margin: 30px 0 0 0;
 }
 
 .footer {
@@ -234,8 +243,7 @@ body {
 -----------------------------------------------------------*/
 
 .sidebar .block-content {
-	margin: 22px 0 0 0;
-	padding: 0 0 0.1em;
+	margin-bottom: 20px;
 }
 
 .sidebar .block-content h2 {
@@ -264,10 +272,123 @@ body {
 	border-bottom: none;
 }
 
-/* Archive and Google Search */
+/* Company introduction */
+.sidebar #intro p {
+	color: #999999;
+	letter-spacing: 0.3px;
+}
+
+.sidebar span.portrait {
+	background-color: #FFFFFF;
+	border: 1px solid #C8C7BA;
+	display: block;
+	float: left;
+	margin-right: 12px;
+	margin-top: 8px;
+	padding: 4px;
+	position: relative;
+	
+	/*box-shadow: 2px 2px 2px #ccc;
+	-moz-box-shadow: 2px 2px 2px #ccc;
+	-webkit-box-shadow: 2px 2px 2px #ccc;*/
+}
+
+.sidebar span.portrait img {
+	border:1px solid #555653;
+	display:block;
+}
+
+/*-----------------------------------------------------------
+				EMAIL SUBSCRIPTIONS (SIDEBAR)
+-----------------------------------------------------------*/
+.sidebar .emailsubs {
+	background-color: #75D9EB;
+    /*border: 1px solid #DDDDDD;*/
+    color: #373E40;
+    font-size: 16px;
+    line-height: 18px;
+
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
+
+	padding: 10px 0;
+	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+}
+
+.sidebar .emailsubs a {
+	border-bottom: none;
+	color: #373E40;
+}
+
+.sidebar .emailsubs h2 {
+	color: #373E40;
+	font: bold 16px 'Lucida Grande','Helvetica','Arial',sans-serif;
+	margin-bottom: 8px;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.sidebar .emailsubs h3 {
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	
+	border-top: 1px solid #fff;
+	margin-top: 15px;
+	padding-top: 12px;
+}
+
+.sidebar .emailsubs h3 a.feeds {
+	background: transparent url("../images/rss6.png") no-repeat left center;
+	padding: 10px;
+	padding-left: 2.4em;
+}
+
+.sidebar .emailsubs .divider {
+    padding: 0;
+	position: relative;
+	width: 100%;
+	height: 1px;
+	background-color: #DDDDDD;
+	display: inline-block;
+	/*border: solid #FFF 1px;*/
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+.sidebar .emailsubs input.text {
+	width: 159px;
+	color: #373E40;
+	font: bold 12px 'Lucida Grande','Helvetica','Arial',sans-serif;
+	padding: 6px;
+	vertical-align: middle;
+}
+
+.sidebar .emailsubs input::-webkit-input-placeholder {
+    color: #999;
+}
+
+.sidebar .emailsubs input:-moz-placeholder {
+    color: #999;
+}
+
+.sidebar .emailsubs .feedcount {
+	text-align: center;
+	margin-top: 10px;
+}
+
+/*-----------------------------------------------------------
+					SEARCH
+-----------------------------------------------------------*/
+
 .sidebar div#search {
 	background-color: #D3F6FC;
 	text-align: center;
+	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	padding-top: 0.5em;
@@ -287,9 +408,12 @@ body {
 	background: #fff url("../images/search.png") no-repeat 0.5em center;
 }
 
-/* Subscribe to feed */
+/*-----------------------------------------------------------
+					SUBSCRIBE
+-----------------------------------------------------------*/
+
 .subscribe {
-	margin: 20px 0 10px 0;
+	margin: 20px 0 20px 0;
 }
 
 .subscribe a {
@@ -303,34 +427,205 @@ body {
 	height: 32px;
 }
 
-.feedburner {
-	text-align: center;
-}
-
-/* Company introduction */
-.sidebar #intro p {
-	color: #999999;
-	letter-spacing: 0.3px;
-}
-
-.sidebar span.portrait {
-	background-color: #FFFFFF;
-	border: 1px solid #C8C7BA;
+/*-----------------------------------------------------------
+					NEWSLETTER
+-----------------------------------------------------------*/
+.sidebar .newsletter {
 	display: block;
-	float: left;
-	margin-right: 12px;
-	margin-top: 8px;
-	padding: 4px;
-	position: relative;
+	clear: both;
 }
 
-.sidebar span.portrait img {
-	border:1px solid #555653;
-	display:block;
+.sidebar .newsletter .icon {
+	float: left;
+}
+
+.sidebar .newsletter .data {
+	width: 210px;
+	float: right;
+	margin-top: -2px;
+}
+
+.sidebar .newsletter h2,
+.sidebar .newsletter h3 {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar .newsletter p {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar .newsletter .data h3,
+.sidebar .newsletter .data h3 a {
+	color: #333333;
+	font: 16px/21px "ff-dagny-web-pro-1","ff-dagny-web-pro-2","Helvetica Neue",Helvetica,Arial,sans-serif;
+	border-bottom: none;
+	line-height: 1.3em;
+}
+
+.sidebar .newsletter .data h3 a:hover {
+	color: #000000;
+}
+
+.sidebar .newsletter .data .description {
+	color: #706F6F;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 1.3em;
 }
 
 /*-----------------------------------------------------------
-				BLOG POST
+						BOOK
+-----------------------------------------------------------*/
+.sidebar .book {
+	display: block;
+	height: 120px;
+	padding: 8px 0 15px 0;
+	clear: both;
+}
+
+.sidebar .book .cover {
+	width: 100px;
+	float: left;
+	height: 120px;
+}
+
+.sidebar .book .data {
+	width: 160px;
+	float: right;
+	height: 120px;
+}
+
+.sidebar .book h2,
+.sidebar .book h3 {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar .book p {
+	margin: 0;
+	padding: 0;
+	
+	margin: 0.2em 0 0.5em;
+}
+
+.sidebar .book .data h3,
+.sidebar .book .data h3 a {
+	color: #333333;
+	font: 14px/21px "ff-dagny-web-pro-1","ff-dagny-web-pro-2","Helvetica Neue",Helvetica,Arial,sans-serif;
+	border-bottom: none;
+	line-height: 1.3em;
+}
+
+.sidebar .book .data h3 a:hover {
+	/*border-bottom: 1px dotted;*/
+	color: #000000;
+}
+
+.sidebar .book .data .author {
+	color: #706F6F;
+	font-size: 11px;
+	font-style: italic;
+	text-transform: lowercase;
+}
+
+.sidebar .book .data .author span {
+	color: #F45A13;
+	font-size: 11px;
+	font-style: normal;
+	letter-spacing: 0px;
+	margin-left: 2px;
+	margin-right: 4px;
+	text-transform: uppercase;
+}
+
+.sidebar .book .data .published {
+	color: #706F6F;
+	font-size: 11px;
+	font-style: italic;
+	text-transform: lowercase;
+}
+
+.sidebar .book .data .buy a {
+	border-bottom: none;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,"Times New Roman",Times,Serif;
+	font-size: 13px;
+}
+
+.sidebar .book .data .buy a:hover {
+	border-bottom: none;
+	border-bottom: 1px dotted;
+	color: #000000;
+}
+
+/*-----------------------------------------------------------
+						SOFTWARE
+-----------------------------------------------------------*/
+.sidebar .software {
+	display: block;
+	clear: both;
+}
+
+.sidebar .software .icon {
+	float: left;
+	background-color: none;
+	padding: 5px 5px 0 5px;
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.sidebar .software .turquoise {
+	background-color: #46c8f5;
+}
+
+.sidebar .software .tweetlr {
+	background-color: #96d9f9;
+}
+
+.sidebar .software .gold {
+	background-color: #ffdf00;
+}
+
+.sidebar .software .data {
+	width: 192px;
+	float: right;
+}
+
+.sidebar .software h2,
+.sidebar .software h3 {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar .software p {
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar .software .data h3,
+.sidebar .software .data h3 a {
+	color: #333333;
+	font: 24px/21px "ff-dagny-web-pro-1","ff-dagny-web-pro-2","Helvetica Neue",Helvetica,Arial,sans-serif;
+	border-bottom: none;
+	line-height: 1.3em;
+}
+
+.sidebar .software .data h3 a:hover {
+	color: #000000;
+}
+
+.sidebar .software .data .description {
+	color: #706F6F;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 1.3em;
+}
+
+/*-----------------------------------------------------------
+					BLOG POST
 -----------------------------------------------------------*/
 
 .post {
@@ -439,6 +734,7 @@ body {
 
 .post .entry img {
 	display: block;
+	/*padding: 3px;*/
 }
 
 .post .entry img.align-right {
@@ -461,6 +757,7 @@ body {
 .post .entry q {
 	margin: 1em 2em;
 	padding: .5em 1.3em;
+	/*border-left: 1px solid #DDD;*/
 	color: #666;
 	font: italic .9em/1.7 Georgia, "Times New Roman", Times, serif;
 	margin-top: -40px;
@@ -485,11 +782,21 @@ body {
 
 .post .entry blockquote:after,
 .post .entry q:after {
+	/*content: close-quote;*/
 	content: '';
 	height: 60px;
 	margin-top: -75px;
 	margin-left: 415px;
 }
+
+/*.post .entry code {
+	display: block;
+	margin: 1em 2em;
+	padding: 1em 1.5em;
+	border-left: 1px solid #DDD;
+	background-color: #EEE;
+	white-space: pre-wrap;
+}*/
 
 .post .entry code {
 	display: block;
@@ -525,6 +832,8 @@ body {
 	color: #333;
 	text-decoration: none;
 	font-weight: bold;
+	
+	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
@@ -533,6 +842,40 @@ body {
 	background-color: #333;
 	color: #FFF;
 	text-shadow: 0 1px 0 #222;
+}
+
+/*-----------------------------------------------------------
+				EMAIL SUBSCRIPTIONS
+-----------------------------------------------------------*/
+
+.post .emailsubs {
+	background-color: #75D9EB;
+	/*background-color: #ccf3fc;*/
+	border: 1px solid #DDDDDD;
+	color: #373E40;
+	font-size: 16px;
+	line-height: 18px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #FFFFFF;
+	margin-top: 20px;
+	padding-bottom: 13px;
+}
+
+.post .emailsubs h2,
+.post .emailsubs h2 a {
+	color: #373E40;
+	font: bold 16px 'Lucida Grande', 'Helvetica', 'Arial', sans-serif;
+	margin-bottom: 8px;
+	text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+.post .emailsubs input.text {
+	color: #373E40;
+	margin-right: 4px;
+	padding: 6px;
+	vertical-align: middle;
+	width: 157px;
+	font: bold 12px 'Lucida Grande', 'Helvetica', 'Arial', sans-serif;
 }
 
 /*-----------------------------------------------------------
@@ -576,6 +919,8 @@ body {
 	background-color: #D3F6FC;
 	display: block;
 	clear: both;
+	margin-top: 20px;
+	padding-bottom: 10px;
 }
 
 .comments_canvas h2 {
@@ -594,6 +939,8 @@ body {
 	background-color: #DDD;
 	color: #FFF;
 	text-shadow: 0 1px 0 #CCC;
+	
+	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
@@ -669,6 +1016,10 @@ h3 span.date {
 	padding-right: 5px;
 }
 
+.comments_canvas .comment h3 span.aux a {
+	text-decoration: none;
+}
+
 .comment-body {
 	font-size: 0.9em;
 	line-height: 1.3em;
@@ -708,7 +1059,9 @@ h3 span.date {
 .comments_canvas .form-field textarea,
 .comments_canvas .form-submit input,
 .comments_canvas .form-submit span#submit-comment,
-.sidebar .form-submit input {
+.sidebar .form-submit input,
+.content input.black_button,
+.sidebar input.black_button {
 	padding: .25em .5em;
 	font: normal 0.9em/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
@@ -719,16 +1072,20 @@ h3 span.date {
 
 .comments_canvas .form-submit input,
 .comments_canvas .form-submit span#submit-comment,
-.sidebar .form-submit input {
+.sidebar .form-submit input,
+.content input.black_button,
+.sidebar input.black_button {
 	border: 0;
 	background-color: #333;
 	color: #FFF;
 	text-shadow: 0 1px 0 #222;
 	font-weight: bold;
 	cursor: pointer;
+	
+	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-	margin: 0 0 15px 0;
+	/*margin: 0 0 15px 0;*/
 }
 
 .comments_canvas .form-submit span#submit-comment {
@@ -766,6 +1123,33 @@ h3 span.date {
 	border-bottom: none;
 	color: #333;
 }
+
+/*http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css*/
+::-webkit-input-placeholder {
+    color: #333;
+	/*text-align: center;*/
+}
+:-moz-placeholder {
+    color: #333;
+	/*text-align: center;*/
+}
+
+/* Edit Comment
+-----------------------------------------------------------*/
+.form-submit strong {
+	font-weight: normal;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*.edit_comment_canvas {
+	display: none;
+}*/
+
+.edit_comment_canvas .readonly {
+	color: #6b6b6b;
+}
+
 
 /*-----------------------------------------------------------
 					ARCHIVES
@@ -824,6 +1208,8 @@ h3 span.date {
 
 .archives span.comments,
 .archives span.latest {
+	border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
 	-moz-border-radius: 3px 3px 3px 3px;
 	background-color: #DDDDDD;
 	color: #FFFFFF;
@@ -896,7 +1282,10 @@ img#spam_grill {
 	font-size:1.3em;
 	font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
 	border: 1px solid #999;	
-	-moz-border-radius: 6px 6px 6px 6px;	
+	
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;	
 }
 
 .sidebar #title-container p {
@@ -1077,6 +1466,60 @@ img#spam_grill {
 	border-top:3px solid #fff;
 	border-left:3px solid #fff;
 	background-color:#ddd;
+}
+
+/*-----------------------------------------------------------
+LOCALIZABLE (NON-IMAGE) BUTTONS
+-----------------------------------------------------------*/
+
+div.button {
+	/* Ensure the keyboard focus outline can still be seen */
+	overflow: hidden;
+	margin-left: -1px;
+	margin-top: -1px;
+	padding: 1px;
+}
+
+div.button a,
+div.button a:hover {
+  background: url("../images/button_left.gif") 0 0 no-repeat !important;
+  /* !important to overrule background: none on a:hover. Otherwise the default hover color bleeds through */
+  display: block;
+  float: left;
+  font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', 'Verdana', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  height: 32px;
+  margin-right: 0.4em;
+  padding: 0 0 0 16px;
+  text-decoration: none;
+  text-shadow: 0 0 1px #ffffff;
+  text-wrap: none;
+}
+
+div.button a span {
+  background: url("../images/button_right.gif") 100% 0 no-repeat;
+	color: #000000;
+  display: block;
+  padding: 0px 12px 3px 0;
+  line-height: 29px;
+}
+
+div.button a:active {
+  background-position: 0 -32px !important;
+}
+
+div.button a:active span {
+  background-position: 100% -32px !important;
+}
+
+/* A disabled button */
+div.button a.disabled {
+	background-image: url("../images/add_button_left_disabled.gif");
+}
+
+div.button a.disabled span {
+	color: #555555;
 }
 
 /*-----------------------------------------------------------

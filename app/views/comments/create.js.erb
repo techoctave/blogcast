@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
 	$(".comments").append("<%= escape_javascript(render :partial => @comment, :locals => { :post => @post }) %>");
 	$("#comment_<%= @comment.id %>").hide().fadeIn(1500);
 	
+	$(".edit_comment_canvas").hide();
 	$("#comment_preview_canvas").hide();
 	$("#new_comment_canvas").show();
 });

@@ -25,8 +25,50 @@
 			<% end %>
 			
 			<% end %>
+			
+			<%= image_tag "edit.png", "data-id" => comment.id, :class => "edit_coment", :alt => "edit comment", :title => "edit comment" %>
 		</span>
 		<% end %>
 	</h3>				
 	<div class="comment-body"><%=sanitize(comment.content, :tags => %w(strong em blockquote code), :attributes => %w()) %></div>
 </div><!--comment-->
+
+<% if current_user && comment.id > 0 %>
+<div id="edit_comment_canvas_<%= comment.id %>" class="comment edit_comment_canvas">
+	<%= form_for([post, comment], :html => {"data-id" => comment.id}) do |f| %>
+	<fieldset>
+		<div class="form-field">
+			<%= f.text_field :name, :id => "comment_name_#{comment.id}", :placeholder => "Name", :size => "40" %> 
+		</div>
+		
+		<div class="form-field">
+			<%= f.text_field :email, :id => "comment_email_#{comment.id}", :placeholder => "Email", :size => "40" %> 
+		</div>
+
+		<div class="form-field">
+			<%= f.text_field :website, :id => "comment_website_#{comment.id}", :placeholder => "Website", :size => "40" %> 
+		</div>
+		
+		<div class="form-field">
+			<%= f.text_field :user_ip, :id => "comment_user_ip_#{comment.id}", :placeholder => "Website", :size => "40", :class => "readonly"%> 
+		</div>
+		
+		<div class="form-field">
+			<%= f.text_field :user_agent, :id => "comment_user_agent_#{comment.id}", :placeholder => "Website", :size => "40", :class => "readonly" %> 
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<div class="form-field">
+			<%= f.text_area :content, :id => "comment_content_#{comment.id}", :cols => "55", :rows => "6", :placeholder => "Remember, your comment represents you. Let's add value. Some XHTML is welcomed (strong em blockquote code)." %>
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<div class="form-submit">
+			<%= f.submit "Update comment", :id => "comment_submit_#{comment.id}", :disable_with => "Update comment" %> <span>or</span> <strong data-id="<%= comment.id %>">Cancel</strong>
+		</div>
+	</fieldset>
+	<% end %>
+</div><!-- edit_comment_canvas -->
+<% end %>

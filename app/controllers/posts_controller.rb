@@ -56,9 +56,18 @@ class PostsController < ApplicationController
       @draft.content = BlueCloth.new(@draft.markdown).to_html
       
      if @draft.save
-        redirect_to(drafts_url, :notice => 'Draft was successfully created.')
+        #redirect_to(drafts_url, :notice => 'Draft was successfully created.')
+        respond_to do |format|
+          format.html { redirect_to(drafts_url, :notice => 'Draft was successfully created.') }
+          format.json { render :json => @draft }
+        end
       else
-        render :action => "new"
+        #render :action => "new"
+        
+        respond_to do |format|
+          format.html { render :action => "new" }
+          format.json { render :json => "{ status: 'Draft was not saved.' }" }
+        end
       end
     end
     
@@ -76,9 +85,19 @@ class PostsController < ApplicationController
     end
 
     if @post.update_attributes(params[:post])
-      redirect_to(@post, :notice => 'Post was successfully updated.')
+      #redirect_to(@post, :notice => 'Post was successfully updated.')
+      
+      respond_to do |format|
+        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
+        format.json { render :json => @post }
+      end
     else
-      render :action => "edit"
+      #render :action => "edit"
+      
+      respond_to do |format|
+        format.html { render :action => "edit" }
+        format.json { render :json => "{ status: 'Draft was not updated.' }" }
+      end
     end
   end
 

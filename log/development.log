@@ -1,0 +1,207 @@
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 20 22:59:02 -0400 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+Rendered layouts/_sidebar.html.erb (1.0ms)
+Rendered posts/index.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 167ms (Views: 62.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Thu Oct 20 22:59:09 -0400 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/new.html.erb (3.2ms)
+Completed 200 OK in 28ms (Views: 9.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Thu Oct 20 22:59:15 -0400 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"admin"}, "authenticity_token"=>"yJwMY7Kh1j1t98Ndb4jLr2op2XKy7InAla4iQVjeMEo=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."login" = 'admin' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "current_login_at" = '2011-10-21 02:59:15.688194', "updated_at" = '2011-10-21 02:59:15.690025', "last_request_at" = '2011-10-21 02:59:15.688731', "login_count" = 5, "last_login_at" = '2011-10-21 02:43:08.452075' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 20 22:59:15 -0400 2011
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-10-21 02:59:15.856437', "last_request_at" = '2011-10-21 02:59:15.855876' WHERE "users"."id" = 1[0m
+Rendered layouts/_sidebar.html.erb (0.5ms)
+Rendered posts/index.html.erb within layouts/application (114.7ms)
+Completed 200 OK in 141ms (Views: 125.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Oct 20 22:59:18 -0400 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-10-21 02:59:18.326436', "updated_at" = '2011-10-21 02:59:18.326829' WHERE "users"."id" = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Rendered users/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 56ms (Views: 15.7ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at Thu Oct 20 22:59:20 -0400 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yJwMY7Kh1j1t98Ndb4jLr2op2XKy7InAla4iQVjeMEo=", "id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "updated_at" = '2011-10-21 02:59:20.702666', "last_request_at" = '2011-10-21 02:59:20.702081' WHERE "users"."id" = 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 2]]
+Redirected to http://localhost:3000/users
+Completed 302 Found in 54ms
+
+
+Started GET "/users" for 127.0.0.1 at Thu Oct 20 22:59:20 -0400 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-10-21 02:59:20.877783', "updated_at" = '2011-10-21 02:59:20.878236' WHERE "users"."id" = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+Rendered users/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 134ms (Views: 13.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/0-spam-barbecue/spams" for 127.0.0.1 at Thu Oct 20 22:59:22 -0400 2011
+  Processing by SpamsController#index as HTML
+  Parameters: {"post_id"=>"0-spam-barbecue"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-10-21 02:59:22.374077', "last_request_at" = '2011-10-21 02:59:22.373641' WHERE "users"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "spams" 
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY posted_at DESC[0m
+Rendered spams/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 72ms (Views: 14.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Oct 20 22:59:23 -0400 2011
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-10-21 02:59:23.397819', "last_request_at" = '2011-10-21 02:59:23.397315' WHERE "users"."id" = 1[0m
+Rendered layouts/_sidebar.html.erb (0.6ms)
+Rendered posts/index.html.erb within layouts/application (121.1ms)
+Completed 200 OK in 145ms (Views: 132.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/drafts" for 127.0.0.1 at Thu Oct 20 22:59:24 -0400 2011
+  Processing by DraftsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-10-21 02:59:25.033789', "updated_at" = '2011-10-21 02:59:25.034264' WHERE "users"."id" = 1
+  [1m[36mDraft Load (0.2ms)[0m  [1mSELECT title, id FROM "drafts" ORDER BY created_at DESC[0m
+Rendered drafts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 169ms (Views: 18.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Thu Oct 20 22:59:26 -0400 2011
+  Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-10-21 02:59:26.208804', "last_request_at" = '2011-10-21 02:59:26.208354' WHERE "users"."id" = 1
+Rendered posts/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 146ms (Views: 22.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Oct 20 22:59:27 -0400 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-10-21 02:59:27.220161', "last_request_at" = '2011-10-21 02:59:27.219683' WHERE "users"."id" = 1
+Rendered layouts/_sidebar.html.erb (0.6ms)
+Rendered posts/index.html.erb within layouts/application (120.0ms)
+Completed 200 OK in 144ms (Views: 130.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/archives" for 127.0.0.1 at Thu Oct 20 22:59:28 -0400 2011
+  Processing by ArchivesController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT title, id, posted_at FROM "posts" ORDER BY posted_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-10-21 02:59:28.816644', "last_request_at" = '2011-10-21 02:59:28.816152' WHERE "users"."id" = 1
+Rendered archives/index.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 147ms (Views: 55.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Oct 20 22:59:31 -0400 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-10-21 02:59:31.220362', "last_request_at" = '2011-10-21 02:59:31.219964' WHERE "users"."id" = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+Rendered users/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 55ms (Views: 14.2ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at Thu Oct 20 22:59:32 -0400 2011
+  Processing by UserSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yJwMY7Kh1j1t98Ndb4jLr2op2XKy7InAla4iQVjeMEo="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-10-21 02:59:32.165337', "last_request_at" = '2011-10-21 02:59:32.164921' WHERE "users"."id" = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-10-21 02:59:32.174332', "last_request_at" = '2011-10-21 02:59:32.173983' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 49ms
+
+
+Started GET "/admin" for 127.0.0.1 at Thu Oct 20 22:59:32 -0400 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/new.html.erb (2.2ms)
+Completed 200 OK in 24ms (Views: 7.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Thu Oct 20 22:59:36 -0400 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"[FILTERED]", "login"=>"admin"}, "authenticity_token"=>"yJwMY7Kh1j1t98Ndb4jLr2op2XKy7InAla4iQVjeMEo=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."login" = 'admin' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "last_request_at" = '2011-10-21 02:59:36.084760', "login_count" = 6, "updated_at" = '2011-10-21 02:59:36.085777', "last_login_at" = '2011-10-21 02:59:15.688194', "current_login_at" = '2011-10-21 02:59:36.084273' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 20 22:59:36 -0400 2011
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT title, author, id, content, posted_at FROM "posts" ORDER BY posted_at DESC LIMIT 15[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "last_request_at" = '2011-10-21 02:59:36.330828', "updated_at" = '2011-10-21 02:59:36.331306' WHERE "users"."id" = 1
+Rendered layouts/_sidebar.html.erb (0.9ms)
+Rendered posts/index.html.erb within layouts/application (121.3ms)
+Completed 200 OK in 145ms (Views: 132.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Oct 20 22:59:38 -0400 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-10-21 02:59:38.813036', "updated_at" = '2011-10-21 02:59:38.813452' WHERE "users"."id" = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 139ms (Views: 15.3ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at Thu Oct 20 22:59:39 -0400 2011
+  Processing by UserSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yJwMY7Kh1j1t98Ndb4jLr2op2XKy7InAla4iQVjeMEo="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-10-21 02:59:39.841164', "updated_at" = '2011-10-21 02:59:39.841590' WHERE "users"."id" = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "last_request_at" = '2011-10-21 02:59:39.849698', "updated_at" = '2011-10-21 02:59:39.850055' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 128ms
+
+
+Started GET "/admin" for 127.0.0.1 at Thu Oct 20 22:59:39 -0400 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/new.html.erb (2.3ms)
+Completed 200 OK in 28ms (Views: 7.6ms | ActiveRecord: 0.5ms)

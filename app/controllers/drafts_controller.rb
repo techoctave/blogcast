@@ -6,6 +6,12 @@ class DraftsController < ApplicationController
      @drafts = Draft.all(:select => "title, id", :order => "created_at DESC")
   end
   
+  def show
+  end
+  
+  def new
+  end
+  
   # GET /drafts/1/edit
   def edit
     @draft = Draft.find(params[:id])
@@ -20,11 +26,20 @@ class DraftsController < ApplicationController
     @draft.markdown = params[:draft][:markdown]
     @draft.content = BlueCloth.new(@draft.markdown).to_html
     
-    if params[:save_draft]
+    if params[:save_draft] || params[:key_save_draft]
       if @draft.save
-        render :action => "edit", :notice => "Draft was successfully updated."
+        #render :action => "edit", :notice => "Draft was successfully updated."
+        
+        respond_to do |format|
+          format.html { render :action => "edit", :notice => "Draft was successfully updated." }
+          format.json { render :json => @draft }
+        end
       else
-        render :action => "edit", :notice => "Draft was not updated."
+        #render :action => "edit", :notice => "Draft was not updated."
+        respond_to do |format|
+          format.html { render :action => "edit", :notice => "Draft was not updated." }
+          format.json { render :json => "{ status: 'Draft was not updated.' }" }
+        end
       end
     end
     
@@ -40,9 +55,17 @@ class DraftsController < ApplicationController
       
       if @post.save
         @draft.destroy
-        redirect_to(@post, :notice => 'Post was successfully created.')
+        
+        respond_to do |format|
+          format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+          format.json { render :json => @post }
+        end
+        
       else
-        render :action => "edit"
+        respond_to do |format|
+          format.html { render :action => "edit", :notice => "Post was not created." }
+          format.json { render :json => "{ status: 'Post was not created.' }" }
+        end
       end
     end
   end

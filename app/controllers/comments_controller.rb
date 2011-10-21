@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_filter :render_404, :except => [:create, :destroy, :preview, :mark_as_spam]
-  before_filter :require_user, :only => [:destroy, :mark_as_spam]
+  before_filter :render_404, :except => [:create, :destroy, :preview, :mark_as_spam, :update]
+  before_filter :require_user, :only => [:destroy, :mark_as_spam, :update]
   
   def index
   end
@@ -88,7 +88,17 @@ class CommentsController < ApplicationController
   def edit
   end
   
+  # PUT /posts/1-hello-world/comments/1
   def update
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    
+    if @comment.update_attributes(params[:comment])
+      respond_to do |format|
+         format.html { redirect_to post_url(@post, :anchor => "comments") }
+         format.json { render :json => @comment }
+       end
+    end
   end
   
   def destroy

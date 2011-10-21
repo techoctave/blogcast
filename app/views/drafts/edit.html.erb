@@ -12,10 +12,10 @@ Edit Draft
 <% end %>
 
 <% content_for :modjs do %>
-<%= javascript_include_tag "showdown" %>
-<%= javascript_include_tag "wmd" %>
-<%= javascript_include_tag "textarearesizer" %>
-<%= javascript_include_tag "elastic" %>
+<%= javascript_include_tag "libraries/showdown" %>
+<%= javascript_include_tag "libraries/wmd" %>
+<%= javascript_include_tag "libraries/textarearesizer" %>
+<%= javascript_include_tag "libraries/elastic" %>
 <% end %>
 
 <div class="post">
@@ -30,6 +30,8 @@ Edit Draft
 	<p class="meta">
 		<a href="#">Post a comment</a>
 	</p>
+	
+	<div id="spinner" class="clearfix"></div>
 		
 	<div id="wmd-preview" class="entry"></div>
 </div><!--post-->
